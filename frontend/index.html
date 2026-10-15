@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <meta name="description" content="Astra AI - Your intelligent AI companion">
+    <title>Astra AI</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <div class="brand-text">
+                    <div class="brand-name">Astra</div>
+                    <div class="brand-label">AI COMPANION</div>
+                </div>
+            </div>
+
+            <button class="new-chat" id="newChatBtn" type="button">
+                <span class="new-chat-icon">+</span>
+                <span>New chat</span>
+                <span class="new-chat-shortcut">↵</span>
+            </button>
+
+            <div class="sidebar-section">
+                <div class="section-title">WORKSPACE</div>
+                <button class="sidebar-item active" type="button">
+                    <span class="sidebar-icon">✦</span>
+                    <span>Astra</span>
+                </button>
+                <button class="sidebar-item" type="button">
+                    <span class="sidebar-icon">⌕</span>
+                    <span>Explore</span>
+                </button>
+            </div>
+
+            <div class="sidebar-section recent-section">
+                <div class="recent-header">
+    <div class="section-title recent-heading">RECENT CHATS</div>
+    <button class="clear-all" id="clearAllBtn" type="button" title="Delete all chats">Clear all</button>
+</div>
+                <div id="recentChats" class="recent-chats"></div>
+            </div>
+
+            <div class="sidebar-bottom">
+                <button class="sidebar-item settings-item" type="button">
+                    <span class="sidebar-icon">⚙</span>
+                    <span>Settings</span>
+                </button>
+
+                <div class="profile">
+                    <div class="profile-avatar">J</div>
+                    <div class="profile-info">
+                        <div class="profile-name">Astra User</div>
+                        <div class="profile-status">
+                            <span class="status-dot"></span>
+                            Personal workspace
+                        </div>
+                    </div>
+                    <div class="profile-more">···</div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div class="mobile-brand">
+                    <div class="brand-icon small">✦</div>
+                    <span>Astra</span>
+                </div>
+
+                <div class="model-selector">
+                    <span class="model-status-icon">✦</span>
+                    <span class="model-name">Astra</span>
+                    <span class="model-version">AI</span>
+                    <span class="chevron">⌄</span>
+                </div>
+
+                <div class="top-actions">
+                    <button class="icon-button" type="button" title="Share" aria-label="Share">↗</button>
+                    <button class="icon-button" type="button" title="More options" aria-label="More options">···</button>
+                </div>
+            </header>
+
+            <section class="chat-area" id="chatArea">
+                <div class="welcome" id="welcomeScreen">
+                    <div class="astra-orb">
+                        <div class="orb-glow"></div>
+                        <div class="orb-ring ring-one"></div>
+                        <div class="orb-ring ring-two"></div>
+                        <div class="orb-core">✦</div>
+                    </div>
+
+                    <div class="welcome-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        YOUR AI COMPANION
+                    </div>
+
+                    <h1>How can I help you<span>?</span></h1>
+
+                    <p class="welcome-description">
+                        Your ideas deserve to go further.
+                        Ask, explore, learn, and build something amazing with Astra.
+                    </p>
+
+                    <div class="suggestions">
+                        <button class="suggestion" type="button"
+                            data-prompt="Explain Python programming to me in a simple beginner-friendly way.">
+                            <span class="suggestion-icon code-icon">&lt;/&gt;</span>
+                            <span class="suggestion-text">
+                                <strong>Learn Python</strong>
+                                <small>Start with the basics</small>
+                            </span>
+                            <span class="suggestion-arrow">↗</span>
+                        </button>
+
+                        <button class="suggestion" type="button"
+                            data-prompt="Teach me data analysis step by step starting from the basics.">
+                            <span class="suggestion-icon chart-icon">▥</span>
+                            <span class="suggestion-text">
+                                <strong>Data Analysis</strong>
+                                <small>Turn data into insights</small>
+                            </span>
+                            <span class="suggestion-arrow">↗</span>
+                        </button>
+
+                        <button class="suggestion" type="button"
+                            data-prompt="Explain machine learning in a simple beginner-friendly way with an example.">
+                            <span class="suggestion-icon ai-icon">◈</span>
+                            <span class="suggestion-text">
+                                <strong>Machine Learning</strong>
+                                <small>Understand intelligent systems</small>
+                            </span>
+                            <span class="suggestion-arrow">↗</span>
+                        </button>
+
+                        <button class="suggestion" type="button"
+                            data-prompt="Give me five interesting project ideas for a computer science student.">
+                            <span class="suggestion-icon idea-icon">✧</span>
+                            <span class="suggestion-text">
+                                <strong>Project Ideas</strong>
+                                <small>Build your next project</small>
+                            </span>
+                            <span class="suggestion-arrow">↗</span>
+                        </button>
+                    </div>
+
+                    <div class="welcome-footer">
+                        <span>✧</span> Curiosity is where great things begin.
+                    </div>
+                </div>
+
+                <div class="messages" id="messages"></div>
+            </section>
+
+            <footer class="input-section">
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <button class="input-action" type="button"
+                            title="Attachment feature not configured" aria-label="Attachment">
+                            +
+                        </button>
+
+                        <textarea
+                            id="messageInput"
+                            rows="1"
+                            placeholder="Message Astra..."
+                            aria-label="Message Astra"
+                        ></textarea>
+
+                        <button id="sendButton" class="send-button"
+                            type="button" title="Send message" aria-label="Send message">
+                            <span>↑</span>
+                        </button>
+                    </div>
+
+                    <div class="input-meta">
+                        <span><span class="meta-sparkle">✦</span> Astra AI</span>
+                        <span>Enter to send · Shift + Enter for a new line</span>
+                    </div>
+                </div>
+
+                <div class="input-disclaimer">
+                    Astra can make mistakes. Check important information.
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
